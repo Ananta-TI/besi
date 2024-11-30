@@ -246,10 +246,16 @@ button {
     border: /* Missing border property */
 }
     </style>
+     <!-- Fonts -->
+     {{-- <link rel="preconnect" href="https://fonts.bunny.net">
+     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
+
+     <!-- Scripts -->
+     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
-    <header>
+    {{-- <header>
         <h1>Toko Online Anda</h1>
         <nav class="-mx-3 flex flex-1 justify-end">
             @auth
@@ -274,8 +280,10 @@ button {
                 @endif
             @endauth
         </nav>
-    </header>
+    </header> --}}
+    @include('layouts.navigation')
 
+    
     <section id="products" class="products">
         <div class="card">
             <div class="card-img"><div class="img"></div></div>

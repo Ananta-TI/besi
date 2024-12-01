@@ -327,7 +327,7 @@ button {
         </div>
     </section>
 
-    {{-- <section id="about" class="about">
+    <section id="about" class="about">
         <h2>Tentang Kami</h2>
         <p>Kami adalah toko online yang menyediakan berbagai produk berkualitas dengan harga terjangkau. Kami
             berkomitmen untuk memberikan pelayanan terbaik kepada pelanggan kami.</p>
@@ -338,35 +338,11 @@ button {
         <p>Jika Anda memiliki pertanyaan atau ingin mengetahui lebih lanjut, silakan hubungi kami di:</p>
         <p>Email: <a href="mailto:info@tokoonline.com">info@tokoonline.com</a></p>
         <p>Telepon: +62 812 3456 7890</p>
-    </section> --}}
-
-    {{-- <section id="login" class="login">
-        <h2>Login</h2>
-        <form>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Masuk</button>
-        </form>
     </section>
 
-    <section id="register" class="register">
-        <h2>Registrasi</h2>
-        <form>
-            <label for="reg-name">Nama:</label>
-            <input type="text" id="reg-name" name="name" required>
-            <label for="reg-email">Email:</label>
-            <input type="email" id="reg-email" name="email" required>
-            <label for="reg-password">Password:</label>
-            <input type="password" id="reg-password" name="password" required>
-            <button type="submit">Daftar</button>
-        </form>
-    </section> --}}
-
-    {{-- <footer>
+    <footer>
         <p>&copy; 2023 Toko Online Anda. Semua hak dilindungi.</p>
-    </footer> --}}
+    </footer>
 </body>
 
 </html>

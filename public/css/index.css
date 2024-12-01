@@ -1,0 +1,240 @@
+/* Reset default styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    line-height: 1.6;
+    animation: fadeIn 1s ease-in-out;  /* Animasi untuk seluruh halaman */
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideIn 0.6s ease-in-out;
+}
+
+.navbar .logo a {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .nav-links a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.navbar .nav-links a:hover {
+    background-color: #0056b3;
+}
+
+/* Header styling */
+h1 {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 36px;
+    font-weight: 600;
+    opacity: 0;
+    animation: fadeInUp 1s 0.5s forwards;  /* Animasi muncul dengan pergerakan */
+}
+
+/* Main Container */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s 1s forwards;
+}
+
+/* Create New Product Button */
+.create-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    animation: bounce 2s infinite;
+}
+
+.create-btn:hover {
+    background-color: #218838;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInUp 1s 1.5s forwards;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+table td {
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+table tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+table td img {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Actions Button Styling */
+.actions a, .actions button {
+    padding: 10px 25px;  /* Menyelaraskan padding untuk kedua tombol */
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    width: 140px;  /* Menentukan lebar yang sama untuk kedua tombol */
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Edit Button */
+.actions a {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #007bff;
+}
+
+/* Hover for Edit Button */
+.actions a:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);  /* Animasi pembesaran tombol saat hover */
+}
+
+/* Delete Button */
+.actions button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+/* Hover for Delete Button */
+.actions button:hover {
+    background-color: #c82333;
+    transform: scale(1.1);  /* Animasi pembesaran tombol saat hover */
+}
+
+/* No Products Message */
+.no-products {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+    padding: 20px 0;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .navbar .logo a {
+        font-size: 20px;
+    }
+
+    .navbar .nav-links a {
+        font-size: 14px;
+        margin-left: 15px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}

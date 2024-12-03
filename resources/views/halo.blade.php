@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil eCommerce</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{-- <link rel="stylesheet" href="styles.css"> --}}
     <style>
        body {
@@ -13,34 +18,6 @@
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-}
-
-header {
-    background: #35424a;
-    color: #ffffff;
-}
-
-header h1 {
-    margin: 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-nav a:hover {
-    text-decoration: underline;
 }
 
 section{
@@ -249,32 +226,14 @@ button {
 </head>
 
 <body>
-    <header>
-        <h1>Toko Online Anda</h1>
-        <nav class="-mx-3 flex flex-1 justify-end">
-            @auth
-                <a
-                    href="{{ url('/halo') }}"class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                    Home
-                </a>
-                <a
-                    href="{{ url('/dashboard') }}"class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                    Dashboard
-                </a>
-            @else
-                <a
-                    href="{{ route('login') }}"class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                    Log in
-                </a>
-                @if (Route::has('register'))
-                    <a
-                        href="{{ route('register') }}"class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                        Register
-                    </a>
-                @endif
-            @endauth
-        </nav>
-    </header>
+
+        @include('layouts.navigation')
+
+        <!-- Page Heading -->
+
+
+        <!-- Page Content -->
+
 
     <section id="products" class="products">
         <div class="card">

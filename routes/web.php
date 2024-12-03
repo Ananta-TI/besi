@@ -13,6 +13,9 @@ Route::get('/dashboard', function () {
 Route::get('/halo', function () {
     return view('halo');
 })->middleware(['auth', 'verified'])->name('halo');
+Route::get('/products', function () {
+    return view('products');
+})->middleware(['auth', 'verified'])->name('products');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -12,16 +12,37 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    <x-nav-link>
+                        @auth
+                        <a
+                            href="{{ url('/dashboard') }}"
+                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-black dark:hover:text-black/80 dark:focus-visible:ring-black"
+                        >
+                            Dashboard
+                        </a>
+                        <a
+                            href="{{ url('/home') }}"
+                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-black dark:hover:text-black/80 dark:focus-visible:ring-black"
+                        >
+                            Home
+                        </a>
+                        @else
+                        <a
+                            href="{{ route('login') }}"
+                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-black dark:hover:text-black/80 dark:focus-visible:ring-black"
+                        >
+                            Log in
+                        </a>
 
-                    <x-nav-link :href="route('halo')" :active="request()->routeIs('halo')">
-                        {{ __('Halo') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
-                        {{ __('Products') }}
+                        @if (Route::has('register'))
+                        <a
+                            href="{{ route('register') }}"
+                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-black dark:hover:text-black/80 dark:focus-visible:ring-black"
+                        >
+                            Register
+                        </a>
+                        @endif
+                        @endauth
                     </x-nav-link>
                 </div>
 
@@ -29,6 +50,7 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+                @auth
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
@@ -52,13 +74,14 @@
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                onclick="event.preventDefault();
+                                         this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
                 </x-dropdown>
+                @endauth
             </div>
 
             <!-- Hamburger -->
@@ -83,6 +106,7 @@
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
+            @auth
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
@@ -98,12 +122,18 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
+                        onclick="event.preventDefault();
+                                 this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
             </div>
+            @endauth
+            @guest
+            <div class="px-4">
+                <div class="font-medium text-base text-gray-800">Guest</div>
+            </div>
+            @endguest
         </div>
     </div>
 </nav>

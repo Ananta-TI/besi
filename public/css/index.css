@@ -1,0 +1,251 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Wrapper utama */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Header */
+h1 {
+    font-size: 30px;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Link Tambah Produk */
+a {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Pesan sukses */
+p {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #c3e6cb;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Tombol Edit dan Hapus */
+button, a {
+    font-size: 14px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block; /* Pastikan tombol tetap inline */
+    white-space: nowrap;   /* Mencegah teks membungkus */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Tombol Edit dan Hapus */
+button, a {
+    font-size: 14px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block; /* Pastikan tombol tetap inline */
+    white-space: nowrap;   /* Mencegah teks membungkus */
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: bold; /* Menambah ketebalan font */
+    text-transform: uppercase; /* Menambah efek huruf kapital */
+    letter-spacing: 0.5px; /* Sedikit spasi antar huruf untuk estetika */
+}
+
+/* Tombol Hapus */
+button {
+    background-color: #dc3545;
+    color: #fff;
+    margin-right: 10px; /* Memberi jarak antara tombol Edit dan Hapus */
+}
+
+button:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3); /* Menambah efek bayangan */
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(220, 53, 69, 0.4); /* Efek fokus */
+}
+
+/* Tombol Edit */
+a[href*="edit"] {
+    background-color: #28a745;
+    color: #fff;
+    padding: 12px 20px;  /* Sesuaikan padding agar sama dengan tombol Hapus */
+}
+
+a[href*="edit"]:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); /* Menambah efek bayangan */
+}
+
+a[href*="edit"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(40, 167, 69, 0.4); /* Efek fokus */
+}
+
+/* Tombol Tambah Produk */
+a[href*="create"], a[href*="add"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+a[href*="create"]:hover, a[href*="add"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Animasi Halus untuk tombol */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 768px) {
+    button, a {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    a[href*="edit"], a[href*="create"] {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+/* Animasi Halus */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    table th, table td {
+        font-size: 12px;
+    }
+
+    a {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}

@@ -26,6 +26,12 @@
                         >
                             Home
                         </a>
+                        <a
+                            href="{{ url('/customers') }}"
+                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-black dark:hover:text-black/80 dark:focus-visible:ring-black"
+                        >
+                            Customers
+                        </a>
                         @else
                         <a
                             href="{{ route('login') }}"

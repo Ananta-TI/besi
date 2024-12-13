@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="flex flex-col items-center justify-center bg-static">
+<div id="home" class="flex flex-col items-center justify-center bg-static">
     <h1 class="text-7xl font-bold text-yellow-500 mb-4 text-center">Welcome to Our Website</h1>
     <p class="text-lg font-bold text-white mb-6 text-center">Explore our products!</p>
 </div>

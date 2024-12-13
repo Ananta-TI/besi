@@ -30,7 +30,7 @@
 }
 
 </style>
-<main>
+<main  id="info">
 
     <div >
         <img src="images/Home.png" alt="Logo Perusahaan" class="img">

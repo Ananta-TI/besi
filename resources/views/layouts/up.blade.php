@@ -36,9 +36,9 @@
         <img src="images/Home.png" alt="Logo Perusahaan" class="img">
     </div>
     <div class="info">
-        <p class="text-gray-700">021-22622786 |</p>
+        <p class="text-gray-700 font-bold ">021-22622786 |</p>
         <p class="text-gray-700">Open Hours: <br> MON-FRI 09:00 - 17:00</p>
-        <p class="text-gray-700">Mangga Dua Square Lt. 1 Blok C, HC No. 008</p>
+        <p class="text-gray-700 font-bold">Mangga Dua Square Lt. 1 Blok C, HC No. 008</p>
     </div>
 </main>
 

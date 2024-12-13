@@ -30,7 +30,7 @@ Route::get('/home', [ProductController::class, 'index'])->middleware(['auth', 'v
 
 Route::resource('/products', ProductController::class);
 
-Route::get('/', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 Route::get('/', [HomeController::class, 'guestIndex'])->name('home.guest');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 

@@ -26,12 +26,13 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('guest')->get('/products', [ProductController::class, 'index'])->name('products.index');
-// Di routes/web.php
 Route::get('/home', [ProductController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
 Route::resource('/products', ProductController::class);
 
-Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
-Route::get('/home', [HomeController::class, 'guestIndex'])->name('home.guest');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+Route::get('/', [HomeController::class, 'guestIndex'])->name('home.guest');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
 require __DIR__.'/auth.php';

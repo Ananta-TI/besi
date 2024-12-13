@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="shorcut icon" href="images/logo1.png">
+
     <style>
         body {
             font-family: Arial, sans-serif;

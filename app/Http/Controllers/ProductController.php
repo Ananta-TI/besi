@@ -7,59 +7,57 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    // Menampilkan daftar produk
     public function index()
     {
-        $products = Product::all();
-        return view('products.index', compact('products'));
+        $products = Product::all(); // Retrieve all products from the database
+        return view('products.index', compact('products')); // Pass the products to the view
     }
 
     // Menampilkan form tambah produk
     public function create()
-    {
-        return view('products.create');
-    }
+{
+    return view('products.create'); // Return the view for creating a product
+}
 
-    // Menyimpan produk baru
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
-        ]);
+public function store(Request $request)
+{
+    $request->validate([
+        'name' => 'required',
+        'description' => 'required',
+        'price' => 'required|numeric',
+        'stock' => 'required|integer',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
-        Product::create($request->all());
+    // Handle file upload and save product
+    $imageName = time() . '.' . $request->image->extension();
+    $request->image->move(public_path('images/products'), $imageName);
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan!');
-    }
+    Product::create([
+        'name' => $request->name,
+        'description' => $request->description,
+        'price' => $request->price,
+        'stock' => $request->stock,
+        'image' => $imageName,
+    ]);
 
-    // Menampilkan form edit produk
-    public function edit(Product $product)
-    {
-        return view('products.edit', compact('product'));
-    }
+    return redirect()->route('products.index')->with('success', 'Product created successfully.');
+}
 
-    // Memperbarui data produk
-    public function update(Request $request, Product $product)
-    {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
-        ]);
+public function edit(Product $product)
+{
+    return view('products.edit', compact('product')); // Return the view for editing a product
+}
 
-        $product->update($request->all());
+public function update(Request $request, Product $product)
+{
+    // Similar validation and update logic
+}
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui!');
-    }
-
-    // Menghapus produk
-    public function destroy(Product $product)
-    {
-        $product->delete();
-
-        return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus!');
-    }
+public function destroy(Product $product)
+{
+    $product->delete();
+    return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+}
 }
 

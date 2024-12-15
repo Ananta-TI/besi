@@ -22,7 +22,7 @@
     <input type="file" name="image" id="image" accept="image/*" required>
 
     <button class="btn1 m-3" type="submit">Tambah Produk</button>
-    <button class="btn2" onclick="window.history.back();">kembali</button>
+    <button class="btn" onclick="window.history.back();">kembali</button>
 
 </form>
 @endsection

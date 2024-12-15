@@ -23,7 +23,7 @@ h1 {
 
 /* Wrapper Utama */
 .container {
-  
+
     /* max-width: 1200px; */
     margin: auto;
     animation: fadeIn 0.8s ease-out;
@@ -141,7 +141,7 @@ table tr:hover {
     box-shadow: 0 0 5px 2px rgba(220, 53, 69, 0.4);
 }
 .btn1 {
-    background-color: #3540dc;
+    background-color: #3554dc;
     color: #fff;
     margin-right: 10px;
     font-size: 14px;
@@ -160,17 +160,18 @@ table tr:hover {
 }
 
 .btn1:hover {
-    background-color: #232ec8;
+    background-color: #2333c8;
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+    box-shadow: 0 4px 10px rgba(53, 64, 220, 0.3);
 }
 
 .btn1:focus {
     outline: none;
-    box-shadow: 0 0 5px 2px rgba(0, 47, 255, 0.4);
+    box-shadow: 0 0 5px 2px rgba(53, 70, 220, 0.4);
 }
+
 .btn2 {
-    background-color: #dc3535;
+    background-color: #3bdc35;
     color: #fff;
     margin-right: 10px;
     font-size: 14px;
@@ -189,14 +190,14 @@ table tr:hover {
 }
 
 .btn2:hover {
-    background-color: #c82323;
+    background-color: #28c823;
     transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+    box-shadow: 0 4px 10px rgba(67, 220, 53, 0.3);
 }
 
 .btn2:focus {
     outline: none;
-    box-shadow: 0 0 5px 2px rgba(220, 53, 69, 0.4);
+    box-shadow: 0 0 5px 2px rgba(67, 220, 53, 0.4);
 }
 
 /* Tombol Edit */
@@ -254,26 +255,6 @@ textarea:focus {
     border-color: #007bff;
     outline: none;
     box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
-}
-
-/* Button styles */
-.btn1 {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Button hover effect */
-.btn1:hover {
-    background-color: #0056b3;
 }
 
 /* Spacing for the button */
@@ -493,4 +474,9 @@ footer p {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.text
+{
+    color: #0056b3;
 }

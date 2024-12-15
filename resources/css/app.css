@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* In your CSS */
+:root {
+    --color-primary: #0000004d;
+    --color-secondary: #ecc94b;
+    /* ... */
+  }

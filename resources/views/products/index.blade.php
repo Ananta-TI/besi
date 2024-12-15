@@ -2,11 +2,14 @@
 @extends('layout')
 
 @section('content')
-<h1>Daftar Produk</h1>
-<a href="{{ route('products.create') }}">Tambah Produk</a>
+<h1 class="h1">Daftar Produk</h1>
+<button class="btn1 m-3">
+
+    <a href="{{ route('products.create') }}">Tambah Produk</a>
+</button>
 
 @if (session('success'))
-    <p>{{ session('success') }}</p>
+    <p class="test">{{ session('success') }}</p>
 @endif
 
 <table border="1">

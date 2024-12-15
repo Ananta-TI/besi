@@ -39,7 +39,7 @@
                                 class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-black dark:hover:text-black/80 dark:focus-visible:ring-black">
                                 product
                             </a>
-                            <a href="#about"
+                            <a href="/about"
                                 class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-black dark:hover:text-black/80 dark:focus-visible:ring-black">
                                 About
                             </a>
@@ -62,6 +62,7 @@
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button
+
                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ Auth::user()->name }}</div>
 

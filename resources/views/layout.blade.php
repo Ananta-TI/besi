@@ -10,7 +10,7 @@
 <body>
     <x-app-layout>
 
-        <div class="container">
+        <div>
             @yield('content')
         </div>
     </x-app-layout>

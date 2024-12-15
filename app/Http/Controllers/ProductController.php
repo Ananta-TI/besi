@@ -51,7 +51,32 @@ public function edit(Product $product)
 
 public function update(Request $request, Product $product)
 {
-    // Similar validation and update logic
+    // Validasi data input
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'price' => 'required|numeric|min:0',
+        'stock' => 'required|integer|min:0',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    // Update data produk
+    $product->name = $request->input('name');
+    $product->description = $request->input('description');
+    $product->price = $request->input('price');
+    $product->stock = $request->input('stock');
+
+    // Periksa apakah ada file gambar yang diunggah
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('products', 'public');
+        $product->image = $imagePath;
+    }
+
+    // Simpan perubahan ke database
+    $product->save();
+
+    // Redirect kembali ke halaman daftar produk dengan pesan sukses
+    return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui!');
 }
 
 public function destroy(Product $product)

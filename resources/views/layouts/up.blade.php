@@ -1,12 +1,10 @@
 
 <style>
-
-
-    main {
+   .main {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #fff;
-    width: 100% ;
+    width: 100%;
 }
-
 
 .img {
     height: 100px;
@@ -18,10 +16,8 @@
 
 .info {
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: flex-end;
-    /* margin-left: 340px; */
     gap: 20px;
 }
 
@@ -29,8 +25,30 @@
     margin-right: 30px;
 }
 
+/* Media Query untuk tampilan mobile */
+@media (max-width: 768px) {
+    .img {
+        width: 100%; /* Mengubah lebar gambar menjadi 100% */
+        height: auto; /* Menjaga rasio aspek gambar */
+        margin-left: 0; /* Menghapus margin kiri */
+        margin-top: 20px; /* Mengurangi margin atas */
+        margin-bottom: 20px; /* Mengurangi margin bawah */
+    }
+
+    .info {
+        flex-direction: column; /* Mengubah arah flex menjadi kolom */
+        align-items: flex-start; /* Mengatur item ke kiri */
+        justify-content: flex-start; /* Mengatur konten ke atas */
+        gap: 10px; /* Mengurangi jarak antar elemen */
+    }
+
+    .info p {
+        margin-right: 0; /* Menghapus margin kanan */
+        margin-bottom: 10px; /* Menambahkan margin bawah untuk jarak antar paragraf */
+    }
+}
 </style>
-<main  id="info">
+<main class="main" id="info">
 
     <div >
         <img src="images/Home.png" alt="Logo Perusahaan" class="img">

@@ -21,14 +21,14 @@
             width: 100%;
             max-width: 400px;
             background: #fff;
-            padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding:50px;
         }
 
         .login-container h1 {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 50px;
             font-size: 24px;
             color: #333;
         }
@@ -127,20 +127,20 @@
             </div>
 
             <!-- Forgot Password -->
-            <div style="text-align: right; margin-bottom: 20px;">
+            {{-- <div style="text-align: right; margin-bottom: 20px;">
                 @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}">Forgot your password?</a>
                 @endif
-            </div>
+            </div> --}}
 
             <!-- Submit Button -->
             <button type="submit">Log in</button>
         </form>
 
-        <!-- Register Link -->
+        {{-- <!-- Register Link -->
         <div class="register-link">
             <p>Don't have an account? <a href="{{ route('register') }}">Register here</a></p>
-        </div>
+        </div> --}}
     </div>
 </body>
 </html>

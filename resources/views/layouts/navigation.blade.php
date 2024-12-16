@@ -11,7 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="no-underline hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="flex justify-center items-center space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link>
                         @auth
                             <a href="{{ url('/dashboard') }}"
@@ -20,14 +20,18 @@
                             </a>
                             <a href="{{ url('/products') }}"
                                 class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                product
+                                Product
                             </a>
-                            <a href="{{ url('/contacts ') }}"
+                            <a href="{{ url('/contacts') }}"
                                 class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                contact
+                                Contact
+                            </a>
+                            <a href="{{ url('/articles') }}"
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                Articles
                             </a>
                             <a href="{{ url('/home') }}"
-                                class=" no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                 Home
                             </a>
                         @else
@@ -39,21 +43,25 @@
                                 class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                 Home
                             </a>
-
+                            <a href="/articles"
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                Articles
+                            </a>
                             <a href="/contact/create"
                                 class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                contact
+                                Contact
                             </a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}"
+                                {{-- <a href="{{ route('register') }}"
                                     class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-
-                                </a>
+                                    Register
+                                </a> --}}
                             @endif
                         @endauth
                     </x-nav-link>
                 </div>
+
 
             </div>
 

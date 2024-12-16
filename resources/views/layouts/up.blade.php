@@ -51,7 +51,7 @@
 <main class="main" id="info">
 
     <div >
-        <img src="images/Home.png" alt="Logo Perusahaan" class="img">
+        <img src="images/Home.png" alt="Logo Perusahaan" class="img animate__animated animate__fadeIn animate__delay-1s">
     </div>
     <div class="info">
         <p class="text-gray-700 font-bold ">021-22622786 |</p>

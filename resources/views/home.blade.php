@@ -1,14 +1,20 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 @extends('layout')
 
 @section('content')
-
-<div id="home" class=" bg-static">
-    <h1 class="text-7xl font-bold text-yellow-500 mb-4 text-center">Welcome to Our Website</h1>
-    <p class="text-lg font-bold text-white mb-6 text-center">Explore our products!</p>
+<head>
+    <!-- Tambahkan link Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<div id="home" class="bg-static ">
+    <h1 class="text-7xl font-bold text-yellow-500 mb-4 text-center animate__animated animate__fadeInDown">Welcome to Our Website</h1>
+    <p class="text-lg font-bold text-white mb-6 text-center animate__animated animate__fadeInUp">Explore our products!</p>
 </div>
+
 <br>
 <div id="products" class="container products-section"><br>
-    <h1 class="  text-3xl font-bold mb-4 text-center">Our Product</h1>
+    <h1 class="  text-3xl font-bold mb-4 text-center animate__fadeInDown">Our Product</h1>
     <div class="flex flex-wrap justify-center">
         @foreach ($products as $product)
         <div class="product-card">
@@ -22,7 +28,7 @@
 </div>
 <br>
 
-<h1 id="about" class="  text-5xl font-bold text-black mb-4 text-center">About Us</h1>
+<h1 id="about" class="  text-5xl font-bold text-black mb-4 text-center">They no like Us</h1>
 <div  class="section-container container">
 
     <div class="content-box">

@@ -5,6 +5,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ArticleController;
 
 Route::get('/', function () {
     return view('home');
@@ -48,9 +50,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware('guest')->group(function () {
     // Menampilkan form kontak
     Route::get('/contact/create', [ContactController::class, 'create'])->name('contacts.create');
-
     // Mengirim pesan kontak
     Route::post('/contact', [ContactController::class, 'store'])->name('contacts.store');
 });
+// Semua route untuk artikel, kecuali 'index', memerlukan autentikasi
+Route::middleware(['auth'])->group(function () {
+    Route::resource('articles', ArticleController::class)->except(['index']);
+});
 
+// Route untuk 'index' dapat diakses oleh siapa saja
+Route::resource('articles', ArticleController::class)->only(['index']);
 require __DIR__.'/auth.php';

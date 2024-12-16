@@ -6,9 +6,9 @@
     <h1 class="text-7xl font-bold text-yellow-500 mb-4 text-center">Welcome to Our Website</h1>
     <p class="text-lg font-bold text-white mb-6 text-center">Explore our products!</p>
 </div>
-
-<div id="products" class="products-section">
-    <h1 class="  text-3xl font-bold text-black mb-4 text-center">Our Product</h1>
+<br>
+<div id="products" class="container products-section"><br>
+    <h1 class="  text-3xl font-bold mb-4 text-center">Our Product</h1>
     <div class="flex flex-wrap justify-center">
         @foreach ($products as $product)
         <div class="product-card">
@@ -23,7 +23,7 @@
 <br>
 
 <h1 id="about" class="  text-5xl font-bold text-black mb-4 text-center">About Us</h1>
-<div  class="section-container">
+<div  class="section-container container">
 
     <div class="content-box">
         <img src="{{ asset('images/home.png') }}" alt="Ship image">
@@ -31,7 +31,7 @@
         <p><strong>SJ Bersama</strong><br>Supplier Jual Wire Rope Berkualitas</p>
     </div>
 
-    <div class="content-box">
+    <div id="about" class="content-box">
         <h2 class="section-title">Mengapa Anda Memilih Kami?</h2>
         <div class="why-choose-us">
             <div>
@@ -62,28 +62,86 @@
 {{-- pabrik --}}
 <div class="industries-section">
     <h2>Kami Melayani Pelanggan dari berbagai Pasar Industri Berikut:</h2>
-    <div class="industries-grid">
-        <img src="{{ asset('images/slider-1.jpg') }}" alt="Construction">
-        <img src="{{ asset('images/slider-1.jpg') }}" alt="Mining">
-        <img src="{{ asset('images/slider-1.jpg') }}" alt="Offshore">
-        <img src="{{ asset('images/slider-1.jpg') }}" alt="Shipping">
-        <img src="{{ asset('images/slider-1.jpg') }}" alt="Ports">
-        <img src="{{ asset('images/slider-1.jpg') }}" alt="Manufacturing">
+    <div class="container">
+
+        <div class="industries-grid">
+            <img src="{{ asset('images/slider-1.jpg') }}" alt="Construction">
+            <img src="{{ asset('images/slider-1.jpg') }}" alt="Mining">
+            <img src="{{ asset('images/slider-1.jpg') }}" alt="Offshore">
+            <img src="{{ asset('images/slider-1.jpg') }}" alt="Shipping">
+            <img src="{{ asset('images/slider-1.jpg') }}" alt="Ports">
+            <img src="{{ asset('images/slider-1.jpg') }}" alt="Manufacturing">
+        </div>
     </div>
 </div>
+<br>
+<head>
+    <style>
 
+      swiper-container {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
 
+      swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 200px;
+        height: 200px;
+      }
 
-{{-- Footer --}}
-<footer>
-    <p>&copy; {{ date('Y') }} Sukses Jaya Bersama. All rights reserved.</p>
-    <p>Contact Me:
-        <a href="mailto:contact@sjbersama.com">contact@sjbersama.com</a> |
-        <a href="tel:+6281234567890">+62 812-3456-7890</a>
-    </p>
-    <p>Follow us on
-        <a href="https://instagram.com/sjbersama" target="_blank">Instagram</a>
-    </p>
-</footer>
+      swiper-slide img {
+        display: block;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1  id="brand" class="container flex items-center justify-center max-w-screen-lg text-4xl font-bold">
+        Brand
+    </h1>
+
+    <swiper-container
+      class="container"
+      pagination="true"
+      effect="coverflow"
+      grab-cursor="true"
+      centered-slides="true"
+      slides-per-view="auto"
+      coverflow-effect-rotate="50"
+      coverflow-effect-stretch="0"
+      coverflow-effect-depth="100"
+      coverflow-effect-modifier="1"
+      coverflow-effect-slide-shadows="false"
+      autoplay="true">
+      <swiper-slide>
+        <img src="../images/laravel.png" />
+      </swiper-slide>
+      <swiper-slide>
+        <img src="../images/vscode.png" />
+      </swiper-slide>
+      <swiper-slide>
+        <img src="../images/html.png" />
+      </swiper-slide>
+      <swiper-slide>
+        <img src="../images/css.png" />
+      </swiper-slide>
+      <swiper-slide>
+        <img src="../images/js.png" />
+      </swiper-slide>
+      <swiper-slide>
+        <img src="../images/php.png" />
+      </swiper-slide>
+      <swiper-slide>
+        <img src="../images/gpt.png" />
+      </swiper-slide>
+
+    </swiper-container>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  </body>
+
 
 @endsection

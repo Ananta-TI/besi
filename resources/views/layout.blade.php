@@ -6,6 +6,13 @@
     <title>KABESTU</title>
     <link rel="shorcut icon" href="images/logo1.png">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <head>
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <!-- Leaflet JavaScript -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    </head>
+
 </head>
 <body>
     <x-app-layout>

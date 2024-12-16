@@ -7,7 +7,7 @@
     <h1 class="h1">Daftar Produk</h1>
     <button class="btn1 m-3">
 
-        <a href="{{ route('products.create') }}">Tambah Produk</a>
+        <a class="no-underline text-white" href="{{ route('products.create') }}">Tambah Produk</a>
     </button>
 
     @if (session('success'))
@@ -36,11 +36,11 @@
                     <img src="{{ asset('images/products/' . $product->image) }}" alt="Gambar {{ $product->name }}" style="width:100px; height:100px; object-fit:cover;">
                 </td>
                 <td>
-                    <a class="btn2" href="{{ route('products.edit', $product) }}">Edit</a>
+                    <a class="btn2 no-underline" href="{{ route('products.edit', $product) }}">Edit</a>
                     <form action="{{ route('products.destroy', $product) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button class="btn" type="submit">Hapus</button>
+                        <button class="hapus" type="submit">Hapus</button>
                     </form>
                 </td>
             </tr>

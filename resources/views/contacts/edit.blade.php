@@ -20,7 +20,7 @@
             <textarea name="message" class="form-control" required>{{ $contact->message }}</textarea>
         </div>
         <button type="submit" class="btn1 btn-warning mt-3">Update</button>
-        <button class="btn" onclick="window.history.back();">kembali</button>
+        <button class="hapus" onclick="window.history.back();">kembali</button>
 
     </form>
 </div>

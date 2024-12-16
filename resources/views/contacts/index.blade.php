@@ -1,9 +1,16 @@
-<!-- resources/views/contacts/index.blade.php -->
 @extends('layout')
 
 @section('content')
 <div class="container">
-    <h1 class="h1">Contact Messages</h1>
+    <h1 class="h2">Contact Messages</h1>
+<br>
+    <!-- Notifikasi Berhasil -->
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <table class="table">
         <thead>
             <tr>
@@ -24,7 +31,7 @@
                         <a class="text" href="{{ route('contacts.show', $contact->id) }}">Read More</a>
                     @endif
                 </td>
-                                <td>
+                <td>
                     <a class="btn1" href="{{ route('contacts.show', $contact->id) }}" class="btn btn-info">View</a>
                     <a class="btn2" href="{{ route('contacts.edit', $contact->id) }}" class="btn btn-warning">Edit</a>
                     <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST" style="display:inline;">

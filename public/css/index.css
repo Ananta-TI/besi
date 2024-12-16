@@ -1,9 +1,12 @@
+*{
+    text-decoration: none;
+}
 /* Reset Dasar */
 #home {
     position: relative;
     width: 100%;
     height: 500px;
-    background-image: url('../images/slider-1.jpg'); /* Ganti dengan URL gambar Anda */
+    background-image: url('../images/slider-1.jpg'), url('../images/Home.jpg'); /* Ganti dengan URL gambar Anda */
     background-size: cover; /* Agar gambar memenuhi ruang */
     background-position: center; /* Pusatkan gambar */
     background-repeat: no-repeat; /* Hindari pengulangan gambar */
@@ -11,6 +14,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 
 h1 {
@@ -27,6 +31,8 @@ h1 {
     /* max-width: 1200px; */
     margin: auto;
     animation: fadeIn 0.8s ease-out;
+    text-decoration: none;
+
 }
 
 /* Header */
@@ -35,8 +41,10 @@ h1 {
     color: #007bff;
     text-align: center;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-top: 20px;
     text-transform: uppercase;
+    text-decoration: none;
+
 }
 
 /* Link Tambah Produk */
@@ -62,6 +70,8 @@ a[href*="add"]:hover {
     background-color: #0056b3;
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    text-decoration: none;
+
 }
 
 /* Pesan Sukses */
@@ -74,6 +84,8 @@ a[href*="add"]:hover {
     margin-bottom: 20px;
     font-size: 14px;
     text-align: center;
+    text-decoration: none;
+
 }
 
 /* Tabel */
@@ -111,7 +123,7 @@ table tr:hover {
 }
 
 /* Tombol Edit dan Hapus */
-.btn {
+.hapus {
     background-color: #dc3545;
     color: #fff;
     margin-right: 10px;
@@ -130,13 +142,13 @@ table tr:hover {
     letter-spacing: 0.5px;
 }
 
-.btn:hover {
+.hapus:hover {
     background-color: #c82333;
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
 }
 
-.btn:focus {
+.hapus:focus {
     outline: none;
     box-shadow: 0 0 5px 2px rgba(220, 53, 69, 0.4);
 }
@@ -156,6 +168,7 @@ table tr:hover {
     box-sizing: border-box;
     font-weight: bold;
     text-transform: uppercase;
+    text-decoration: none;
     letter-spacing: 0.5px;
 }
 
@@ -187,6 +200,8 @@ table tr:hover {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    text-decoration: none;
+
 }
 
 .btn2:hover {
@@ -224,6 +239,7 @@ table tr:hover {
     margin: 0 auto;
     padding: 20px;
     border-radius: 8px;
+    text-decoration: none;
 }
 
 /* Label styles */
@@ -307,10 +323,13 @@ textarea:focus {
 
 h3 {
     margin: 10px 0;
+
 }
 
 p {
     margin: 5px 0;
+    text-decoration: none;
+
 }
 
 /* Seksi dan Kontainer */
@@ -389,14 +408,16 @@ p {
 
 .industries-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
 .industries-grid img {
     width: 100%;
-    height: 200px;
+    height: 150px;
     object-fit: cover;
     border-radius: 10px;
     transition: transform 0.3s;
@@ -409,7 +430,6 @@ p {
 /* Efek Glass */
 .glass-effect {
     backdrop-filter: blur(10px);
-    box-shadow: 0px 10px 50px rgb(0, 0, 0);
 }
 
 /* Footer */
@@ -427,7 +447,7 @@ footer a {
 }
 
 footer a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 footer p {
@@ -459,6 +479,8 @@ footer p {
     a[href*="create"] {
         font-size: 14px;
         padding: 10px 15px;
+        text-decoration: none;
+
     }
 }
 
@@ -477,4 +499,18 @@ footer p {
 .text
 {
     color: #0056b3;
+}
+
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
 }

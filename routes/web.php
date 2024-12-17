@@ -53,10 +53,15 @@ Route::middleware('guest')->group(function () {
     // Mengirim pesan kontak
     Route::post('/contact', [ContactController::class, 'store'])->name('contacts.store');
 });
+
+
+
+
 // Semua route untuk artikel, kecuali 'index', memerlukan autentikasi
 Route::middleware(['auth'])->group(function () {
     Route::resource('articles', ArticleController::class)->except(['index']);
 });
+
 
 // Route untuk 'index' dapat diakses oleh siapa saja
 Route::resource('articles', ArticleController::class)->only(['index']);

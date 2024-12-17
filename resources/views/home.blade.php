@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> --}}
 
 @extends('layout')
 
@@ -81,7 +81,6 @@
     </div>
 </div>
 <br>
-<head>
     <style>
 
       swiper-container {
@@ -102,9 +101,7 @@
         width: 100%;
       }
     </style>
-  </head>
 
-  <body>
     <h1  id="brand" class="container flex items-center justify-center max-w-screen-lg text-4xl font-bold">
         Brand
     </h1>
@@ -147,7 +144,6 @@
     </swiper-container>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-  </body>
 
 
 @endsection

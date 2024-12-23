@@ -1,3 +1,5 @@
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+
 <nav x-data="{ open: false }" class="text-lg no-underline font-bold bg-black bg-opacity-75 glass-effect sticky top-0 z-50">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,52 +17,46 @@
                     <x-nav-link>
                         @auth
                             <a href="{{ url('/dashboard') }}"
-                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
                                 Dashboard
                             </a>
                             <a href="{{ url('/products') }}"
-                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
                                 Product
                             </a>
                             <a href="{{ url('/contacts') }}"
-                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
                                 Contact
                             </a>
                             <a href="{{ url('/articles') }}"
-                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
                                 Articles
                             </a>
                             <a href="{{ url('/home') }}"
-                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
                                 Home
                             </a>
                         @else
                             <a href="{{ route('login') }}"
-                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
                                 Log in
                             </a>
                             <a href="/"
-                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
                                 Home
                             </a>
                             <a href="/articles"
-                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
                                 Articles
                             </a>
                             <a href="/contact/create"
-                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
                                 Contact
                             </a>
-
-                            @if (Route::has('register'))
-                                {{-- <a href="{{ route('register') }}"
-                                    class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-white/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                    Register
-                                </a> --}}
-                            @endif
                         @endauth
                     </x-nav-link>
                 </div>
+
 
 
             </div>

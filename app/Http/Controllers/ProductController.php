@@ -26,7 +26,7 @@ public function store(Request $request)
         'description' => 'required',
         'price' => 'required|numeric',
         'stock' => 'required|integer',
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'image' => 'required|file|max:20480',
     ]);
 
     // Handle file upload and save product
@@ -53,11 +53,11 @@ public function update(Request $request, Product $product)
 {
     // Validasi data input
     $request->validate([
-        'name' => 'required|string|max:255',
-        'description' => 'required|string',
-        'price' => 'required|numeric|min:0',
-        'stock' => 'required|integer|min:0',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'name' => 'required',
+        'description' => 'required',
+        'price' => 'required|numeric',
+        'stock' => 'required|integer',
+        'image' => 'nullable|file|image|max:20480', // Gambar tidak wajib saat update
     ]);
 
     // Update data produk
@@ -68,8 +68,18 @@ public function update(Request $request, Product $product)
 
     // Periksa apakah ada file gambar yang diunggah
     if ($request->hasFile('image')) {
-        $imagePath = $request->file('image')->store('products', 'public');
-        $product->image = $imagePath;
+        // Hapus gambar lama jika ada
+        if ($product->image) {
+            $oldImagePath = public_path('images/products/' . $product->image);
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath); // Menghapus gambar lama
+            }
+        }
+        
+        // Upload gambar baru
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images/products'), $imageName);
+        $product->image = $imageName; // Menyimpan nama file gambar baru
     }
 
     // Simpan perubahan ke database
@@ -84,5 +94,11 @@ public function destroy(Product $product)
     $product->delete();
     return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
 }
+
+public function show(Product $product)
+{
+    return view('products.show', compact('product'));
+}
+
 }
 

@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DashboardController;
+
 
 Route::get('/', function () {
     return view('home');
@@ -65,4 +67,8 @@ Route::middleware(['auth'])->group(function () {
 
 // Route untuk 'index' dapat diakses oleh siapa saja
 Route::resource('articles', ArticleController::class)->only(['index']);
+
+
+
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 require __DIR__.'/auth.php';

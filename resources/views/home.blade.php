@@ -34,9 +34,9 @@
                         <h3 class="text-xl font-semibold mt-4">{{ $product->name }}</h3>
 
                         <p class="text-gray-600">
-                            {{ implode(' ', array_slice(explode(' ', $product->description), 0, 10)) }}
+                            {{ implode(' ', array_slice(explode(' ', $product->description), 0, 0)) }}
                             @if (str_word_count($product->description) > 6)
-                                ... <a class="no-underline"  href="{{ route('products.show', $product->id) }}"> <br> Read More </a>
+                                 <a class="no-underline"  href="{{ route('products.show', $product->id) }}"> <br> Read More </a>
                             @endif
                         </p>
                     </div>
@@ -46,7 +46,9 @@
     </div>
     <br>
 
-    <h1 id="about" class="  text-5xl font-bold text-black mb-4 text-center">They no like Us</h1>
+
+    {{-- about --}}
+    <h1 id="about" class="  text-5xl font-bold text-black mb-4 text-center">About</h1>
     <div class="section-container container">
 
         <div class="content-box">
@@ -59,32 +61,7 @@
             <p><strong>SJ Bersama</strong><br>Supplier Jual Wire Rope Berkualitas</p>
         </div>
 
-        <div id="about" class="content-box">
-            <h2 class="section-title">Mengapa Anda Memilih Kami?</h2>
-            <div class="why-choose-us">
-                <div>
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h3>Pengiriman Tepat Waktu</h3>
-                        <p>Informasikan metode pengiriman dengan jelas, lalu percayakan sisanya kepada kami.</p>
-                    </div>
-                </div>
-                <div>
-                    <i class="fas fa-check-circle"></i>
-                    <div>
-                        <h3>Jaminan Kualitas Produk</h3>
-                        <p>Kami memberikan solusi & jaminan produk aman, asli & bersertifikat.</p>
-                    </div>
-                </div>
-                <div>
-                    <i class="fas fa-tag"></i>
-                    <div>
-                        <h3>Harga Kompetitif & Bersahabat</h3>
-                        <p>Kami mengutamakan kenyamanan & ketenangan Anda dalam bertransaksi.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 
     {{-- pabrik --}}

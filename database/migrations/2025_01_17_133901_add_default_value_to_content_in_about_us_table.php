@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->string('image')->nullable();  // Menambah kolom image
+        Schema::table('about_us', function (Blueprint $table) {
+            $table->text('content')->default('')->change();
         });
     }
 
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('image');  // Menghapus kolom image jika rollback
+        Schema::table('about_us', function (Blueprint $table) {
+            $table->text('content')->default(null)->change();
         });
     }
 

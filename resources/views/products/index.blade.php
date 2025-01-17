@@ -28,7 +28,7 @@
             <tr>
                 <td>{{ $product->name }}</td>
                 <td>
-                    {{ implode(' ', array_slice(explode(' ', $product->description), 0, 3)) }}
+                    {{ implode(' ', array_slice(explode(' ', $product->description), 2, 2)) }}
                     @if (str_word_count($product->description) > 10)
                         ... <a href="{{ route('products.show', $product->id) }}">Read More</a>
                     @endif

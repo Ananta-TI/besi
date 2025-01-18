@@ -20,6 +20,10 @@
                                 class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
                                 Dashboard
                             </a>
+                            <a href="{{ url('/industries') }}"
+                                class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
+                                industries
+                            </a>
                             <a href="{{ url('/abouts') }}"
                                 class="no-underline rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:!text-yellow-500 active:!text-yellow-500 focus:outline-none focus-visible:!ring-yellow-500 dark:text-white dark:hover:text-yellow-500 dark:active:text-yellow-500 dark:focus-visible:ring-yellow-500">
                                 abouts

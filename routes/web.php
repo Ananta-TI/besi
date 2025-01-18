@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
@@ -62,4 +62,6 @@ Route::middleware('guest')->get('/abouts', [AboutUsController::class, 'index'])-
 // Route::get('/home', [AboutUsController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 Route::resource('/abouts', AboutUsController::class);
 
+
+Route::resource('industries', IndustryController::class);
 require __DIR__.'/auth.php';

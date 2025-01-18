@@ -37,7 +37,6 @@
                             {{ implode(' ', array_slice(explode(' ', $product->description), 0, 0)) }}
                             {{-- @if (str_word_count($product->description) > 10) --}}
                                  <a class=" no-underline"  href="{{ route('products.show', $product->id) }}"> Read More </a>
-
                         </p>
                     </div>
                 @endforeach
@@ -64,20 +63,27 @@
 </div>
 
 
-
-
+   <!-- Section Industries -->
+   <
     {{-- pabrik --}}
     <div class="industries-section">
         <h2>Kami Melayani Pelanggan dari berbagai Pasar Industri Berikut:</h2>
         <div class="container mx-auto px-4 py-14">
-
             <div class="industries-grid">
-                <img src="{{ asset('images/gambar4.jpg') }}" alt="Construction">
-                <img src="{{ asset('images/gambar1.jpg') }}" alt="Mining">
-                <img src="{{ asset('images/gambar2.jpg') }}" alt="Offshore">
-                <img src="{{ asset('images/gambar3.jpg') }}" alt="Shipping">
-                <img src="{{ asset('images/gambar5.jpg') }}" alt="Ports">
-                <img src="{{ asset('images/gambar6.jpg') }}" alt="Manufacturing">
+                @if($industries->isNotEmpty())
+                <div class="row">
+                    @foreach($industries as $industry)
+                        <div class="col-md-4 mb-4 container">
+                            <div>
+                                <img style="max-width: 300px; width: 100%; height: auto;" src="{{ asset('storage/' . $industry->image) }}" class="card-img-top" alt="{{ $industry->name }}">
+                                <div class="card-body">
+                                    {{-- <h5 class="card-title">{{ $industry->name }}</h5> --}}
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
             </div>
         </div>
     </div>

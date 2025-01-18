@@ -1,27 +1,26 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\AboutUs;
+use App\Models\Industry;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    // Method untuk user authenticated
     public function index()
     {
-        $products = Product::all(); // Mengambil semua produk
-        $about = AboutUs::all(); // Mengambil satu data About (jika hanya ada satu data)
-        return view('home', compact('products', 'about'));
+        $products = Product::all();
+        $about = AboutUs::all();
+        $industries = Industry::all(); // Ambil semua data industries
+        return view('home', compact('products', 'about', 'industries'));
     }
 
     public function guestIndex()
     {
-        $products = Product::all(); // Mengambil semua produk
-        $about = AboutUs::all(); // Mengambil satu data About
-        return view('home', compact('products', 'about'));
+        $products = Product::all();
+        $about = AboutUs::all();
+        $industries = Industry::all(); // Ambil semua data industries
+        return view('home', compact('products', 'about', 'industries'));
     }
-
-
 }

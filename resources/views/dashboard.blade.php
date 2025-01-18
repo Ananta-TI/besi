@@ -3,10 +3,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-700">
-                    <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
+                    <h1 class="text-3xl font-bold mb-8">Dashboard</h1>
 
                     <!-- Statistik -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                         <!-- Total Products -->
                         <div class="bg-gray-100 p-6 rounded-lg shadow-md">
                             <h2 class="text-xl font-semibold">Total Products</h2>
@@ -24,11 +24,27 @@
                             <h2 class="text-xl font-semibold">Total Articles</h2>
                             <p class="text-4xl font-bold text-red-500">{{ $totalArticles }}</p>
                         </div>
-                        <!-- Diagram Batang -->
+
+                        <!-- Total Industries -->
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                            <h2 class="text-xl font-semibold">Total Industries</h2>
+                            <p class="text-4xl font-bold text-yellow-500">{{ $totalIndustries }}</p>
+                        </div>
+
+                        <!-- Total About Us -->
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                            <h2 class="text-xl font-semibold">Total About</h2>
+                            <p class="text-4xl font-bold text-purple-500">{{ $totalAbouts }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Diagram Batang -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+
                         <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8">
                             <h2 class="text-xl font-semibold mb-4">Bar Chart: Data Distribution</h2>
                             <div class="flex justify-center">
-                                <canvas id="barChart" class="w-64 h-64"></canvas>
+                                <canvas id="barChart" class="w-full h-64"></canvas>
                             </div>
                         </div>
 
@@ -36,7 +52,7 @@
                         <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8">
                             <h2 class="text-xl font-semibold mb-4">Pie Chart: Data Distribution</h2>
                             <div class="flex justify-center">
-                                <canvas id="pieChart" class="w-64 h-64"></canvas>
+                                <canvas id="pieChart" class="w-full h-64"></canvas>
                             </div>
                         </div>
 
@@ -44,11 +60,10 @@
                         <div class="bg-gray-100 p-6 rounded-lg shadow-md">
                             <h2 class="text-xl font-semibold mb-4">Line Chart: Data Trends</h2>
                             <div class="flex justify-center">
-                                <canvas id="lineChart" class="w-64 h-64"></canvas>
+                                <canvas id="lineChart" class="w-full h-64"></canvas>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -62,19 +77,23 @@
       const barChart = new Chart(barCtx, {
           type: 'bar', // Diagram Batang
           data: {
-              labels: ['Products', 'Contacts', 'Articles'],
+              labels: ['Products', 'Contacts', 'Articles', 'Industries', 'About Us'],
               datasets: [{
                   label: 'Total Data',
-                  data: [{{ $totalProducts }}, {{ $totalContacts }}, {{ $totalArticles }}],
+                  data: [{{ $totalProducts }}, {{ $totalContacts }}, {{ $totalArticles }}, {{ $totalIndustries }}, {{ $totalAbouts }}],
                   backgroundColor: [
                       'rgba(54, 162, 235, 0.7)', // Blue
                       'rgba(75, 192, 192, 0.7)', // Green
-                      'rgba(255, 99, 132, 0.7)'  // Red
+                      'rgba(255, 99, 132, 0.7)', // Red
+                      'rgba(255, 159, 64, 0.7)', // Orange
+                      'rgba(153, 102, 255, 0.7)'  // Purple
                   ],
                   borderColor: [
                       'rgba(54, 162, 235, 1)', // Blue
                       'rgba(75, 192, 192, 1)', // Green
-                      'rgba(255, 99, 132, 1)'  // Red
+                      'rgba(255, 99, 132, 1)', // Red
+                      'rgba(255, 159, 64, 1)', // Orange
+                      'rgba(153, 102, 255, 1)'  // Purple
                   ],
                   borderWidth: 1
               }]
@@ -100,19 +119,23 @@
       const pieChart = new Chart(pieCtx, {
           type: 'pie', // Diagram Lingkaran
           data: {
-              labels: ['Products', 'Contacts', 'Articles'],
+              labels: ['Products', 'Contacts', 'Articles', 'Industries', 'About Us'],
               datasets: [{
                   label: 'Total Data',
-                  data: [{{ $totalProducts }}, {{ $totalContacts }}, {{ $totalArticles }}],
+                  data: [{{ $totalProducts }}, {{ $totalContacts }}, {{ $totalArticles }}, {{ $totalIndustries }}, {{ $totalAbouts }}],
                   backgroundColor: [
                       'rgba(54, 162, 235, 0.7)', // Blue
                       'rgba(75, 192, 192, 0.7)', // Green
-                      'rgba(255, 99, 132, 0.7)'  // Red
+                      'rgba(255, 99, 132, 0.7)', // Red
+                      'rgba(255, 159, 64, 0.7)', // Orange
+                      'rgba(153, 102, 255, 0.7)'  // Purple
                   ],
                   borderColor: [
                       'rgba(54, 162, 235, 1)', // Blue
                       'rgba(75, 192, 192, 1)', // Green
-                      'rgba(255, 99, 132, 1)'  // Red
+                      'rgba(255, 99, 132, 1)', // Red
+                      'rgba(255, 159, 64, 1)', // Orange
+                      'rgba(153, 102, 255, 1)'  // Purple
                   ],
                   borderWidth: 1
               }]
@@ -133,10 +156,10 @@
       const lineChart = new Chart(lineCtx, {
           type: 'line', // Diagram Garis
           data: {
-              labels: ['Products', 'Contacts', 'Articles'],
+              labels: ['Products', 'Contacts', 'Articles', 'Industries', 'About Us'],
               datasets: [{
                   label: 'Total Data Trends',
-                  data: [{{ $totalProducts }}, {{ $totalContacts }}, {{ $totalArticles }}],
+                  data: [{{ $totalProducts }}, {{ $totalContacts }}, {{ $totalArticles }}, {{ $totalIndustries }}, {{ $totalAbouts }}],
                   borderColor: 'rgba(75, 192, 192, 1)',
                   backgroundColor: 'rgba(75, 192, 192, 0.2)',
                   fill: true,

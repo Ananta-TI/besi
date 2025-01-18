@@ -88,23 +88,23 @@ public function update(Request $request, Product $product)
     // Redirect kembali ke halaman daftar produk dengan pesan sukses
     return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui!');
 }
-
 public function destroy(Product $product)
 {
-    // Hapus gambar lama jika ada
+    // Hapus gambar dari server, jika ada
     if ($product->image) {
         $oldImagePath = public_path('images/products/' . $product->image);
         if (file_exists($oldImagePath)) {
-            unlink($oldImagePath); // Menghapus gambar lama
+            unlink($oldImagePath); // Menghapus file gambar
         }
     }
 
-    // Hapus produk dari database
+    // Hapus data produk dari database
     $product->delete();
 
     // Redirect dengan pesan sukses
     return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus!');
 }
+
 
 
 public function show(Product $product)

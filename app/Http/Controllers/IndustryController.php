@@ -21,17 +21,21 @@ class IndustryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:3048',
         ]);
 
-        $imagePath = $request->file('image')->store('industries', 'public');
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('industries', 'public');
 
-        Industry::create([
-            'name' => $request->name,
-            'image' => $imagePath,
-        ]);
+            Industry::create([
+                'name' => $request->name,
+                'image' => $imagePath
+            ]);
 
-        return redirect()->route('industries.index')->with('success', 'Industry created successfully.');
+            return redirect()->route('industries.index')->with('success', 'Industry created successfully.');
+        } else {
+            return back()->withErrors(['image' => 'File upload failed.']);
+        }
     }
 
     public function edit(Industry $industry)
@@ -43,7 +47,7 @@ class IndustryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg|max:3048',
         ]);
 
         $imagePath = $industry->image;

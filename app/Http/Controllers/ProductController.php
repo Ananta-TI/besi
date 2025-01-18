@@ -75,7 +75,7 @@ public function update(Request $request, Product $product)
                 unlink($oldImagePath); // Menghapus gambar lama
             }
         }
-        
+
         // Upload gambar baru
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('images/products'), $imageName);
@@ -91,9 +91,21 @@ public function update(Request $request, Product $product)
 
 public function destroy(Product $product)
 {
+    // Hapus gambar lama jika ada
+    if ($product->image) {
+        $oldImagePath = public_path('images/products/' . $product->image);
+        if (file_exists($oldImagePath)) {
+            unlink($oldImagePath); // Menghapus gambar lama
+        }
+    }
+
+    // Hapus produk dari database
     $product->delete();
-    return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+
+    // Redirect dengan pesan sukses
+    return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus!');
 }
+
 
 public function show(Product $product)
 {

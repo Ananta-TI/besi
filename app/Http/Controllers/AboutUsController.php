@@ -7,96 +7,85 @@ use Illuminate\Http\Request;
 class AboutUsController extends Controller
 {
     public function index()
-    {
-        $abouts = AboutUs::all(); // Ambil semua data AboutUs dari database
-        return view('abouts.index', compact('abouts'));
-    }
-
-    public function store(Request $request)
 {
-    // Validasi data input
-    $request->validate([
-        'title' => 'required|string|max:255',
-        'description' => 'required|string',
-    ]);
-
-    // Simpan data ke database
-    AboutUs::create([
-        'title' => $request->title,
-        'description' => $request->description,
-        'content' => $request->content ?? '', // Isi default jika tidak ada
-    ]);
-
-    // Redirect dengan pesan sukses
-    return redirect()->route('abouts.index')->with('success', 'Data berhasil ditambahkan!');
+    $abouts = AboutUs::all(); // Mengambil semua data
+    return view('abouts.index', compact('abouts')); // Kirim data ke view
 }
-
-
-    public function show($id)
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Gambar opsional
+        ]);
+        $imageName = null; // Default null jika tidak ada gambar
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/abouts'), $imageName);
+        }
+        AboutUs::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $imageName, // Simpan nama file gambar atau null
+        ]);
+        return redirect()->route('abouts.index')->with('success', 'Data berhasil ditambahkan!');
+    }
+    public function update(Request $request, $id)
     {
         $aboutUs = AboutUs::find($id);
         if (!$aboutUs) {
-            return response()->json(['message' => 'Data not found'], 404);
+            return redirect()->route('abouts.index')->with('error', 'Data tidak ditemukan!');
         }
-
-        return response()->json($aboutUs);
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Gambar opsional
+        ]);
+        if ($request->hasFile('image')) {
+            if ($aboutUs->image) {
+                $oldImagePath = public_path('images/abouts/' . $aboutUs->image);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath); // Menghapus gambar lama
+                }
+            }
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/abouts'), $imageName);
+            $aboutUs->image = $imageName; // Perbarui nama file gambar
+        }
+        $aboutUs->update([
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+        $aboutUs->save();
+        return redirect()->route('abouts.index')->with('success', 'Data berhasil diperbarui!');
     }
-
-    public function update(Request $request, $id)
+public function destroy($id)
 {
-    // Cari data berdasarkan ID
     $aboutUs = AboutUs::find($id);
-
-    // Jika data tidak ditemukan, redirect dengan error
     if (!$aboutUs) {
         return redirect()->route('abouts.index')->with('error', 'Data tidak ditemukan!');
     }
-
-    // Validasi input
-    $request->validate([
-        'title' => 'required|string|max:255',
-        'description' => 'required|string',
-    ]);
-
-    // Update data
-    $aboutUs->update([
-        'title' => $request->title,
-        'description' => $request->description,
-    ]);
-
-    // Redirect dengan pesan sukses
-    return redirect()->route('abouts.index')->with('success', 'Data berhasil diupdate!');
+    $aboutUs->delete();
+    return redirect()->route('abouts.index')->with('success', 'Data berhasil dihapus!');
 }
-
-
-    public function destroy($id)
-    {
-        $aboutUs = AboutUs::find($id);
-        if (!$aboutUs) {
-            return response()->json(['message' => 'Data not found'], 404);
-        }
-
-        $aboutUs->delete();
-        return response()->json(['message' => 'Data deleted successfully']);
-    }
-
     public function create()
 {
-    // Return view untuk menampilkan form create
     return view('abouts.create');
 }
 public function edit($id)
 {
-    // Cari data berdasarkan ID
     $aboutUs = AboutUs::find($id);
-
-    // Jika data tidak ditemukan, redirect dengan error
     if (!$aboutUs) {
         return redirect()->route('abouts.index')->with('error', 'Data tidak ditemukan!');
     }
-
-    // Return view dengan data
     return view('abouts.edit', compact('aboutUs'));
 }
+
+public function show(AboutUs $id)
+{
+    return view('abouts.show', compact('id')); // Mengirim variabel id ke view
+}
+
+
 
 }

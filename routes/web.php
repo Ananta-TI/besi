@@ -30,13 +30,10 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('guest')->get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/home', [ProductController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
-
 Route::resource('/products', ProductController::class);
 
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
-
 Route::get('/', [HomeController::class, 'guestIndex'])->name('home.guest');
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -61,6 +58,8 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashb
 // Route::resource('abouts', AboutController::class);
 
 
+Route::middleware('guest')->get('/abouts', [AboutUsController::class, 'index'])->name('abouts.index');
+// Route::get('/home', [AboutUsController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+Route::resource('/abouts', AboutUsController::class);
 
-Route::resource('abouts', AboutUsController::class)->middleware(['auth', 'verified']);
 require __DIR__.'/auth.php';

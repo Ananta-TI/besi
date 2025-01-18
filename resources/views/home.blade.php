@@ -35,9 +35,9 @@
 
                         <p class="text-gray-600">
                             {{ implode(' ', array_slice(explode(' ', $product->description), 0, 0)) }}
-                            @if (str_word_count($product->description) > 6)
-                                 <a class="no-underline"  href="{{ route('products.show', $product->id) }}"> <br> Read More </a>
-                            @endif
+                            {{-- @if (str_word_count($product->description) > 10) --}}
+                                 <a class=" no-underline"  href="{{ route('products.show', $product->id) }}"> Read More </a>
+
                         </p>
                     </div>
                 @endforeach
@@ -46,23 +46,25 @@
     </div>
     <br>
 
-
-    {{-- about --}}
-    <h1 id="about" class="  text-5xl font-bold text-black mb-4 text-center">About</h1>
-    <div class="section-container container">
-
-        <div class="content-box">
-            <img src="{{ asset('images/home.png') }}" alt="Ship image">
-            <p><strong>Keluarga Besi Tua</strong> adalah Supplier (Pemasok) Lifting yang mapan dan kredibel dari
-                <strong>Wire Rope</strong> dan <strong>Chain Slings</strong>, rakitan dan Produk Rigging lainnya ke sektor
-                Minyak & Gas, lepas pantai, laut, pertambangan, dan konstruksi di seluruh Indonesia. Kami akan terus
-                belajar, beradaptasi, dan berusaha menjadi mitra rigging dan lifting yang handal. Kami selalu berusaha
-                menjadi mitra lifting yang dapat diandalkan oleh Anda.</p>
-            <p><strong>SJ Bersama</strong><br>Supplier Jual Wire Rope Berkualitas</p>
+{{-- about --}}
+<h1 id="about" class="text-5xl font-bold text-gray-800 mb-12 text-center">About</h1>
+<div class="section-container py-8">
+    @foreach ($about as $item)
+    <div class="content-box mb-12 text-center">
+        @if ($item->image)
+            <!-- Tampilkan Gambar Jika Ada -->
+            <img src="{{ asset('images/abouts/' . $item->image) }}" class="mx-auto mb-6 rounded-lg">
+        @endif
+        <div>
+            <h2 class="font-bold text-2xl text-gray-800 mb-4">{{ $item->title }}</h2>
+            <p class="text-gray-600 leading-relaxed">{{ $item->description }}</p>
         </div>
-
-
     </div>
+    @endforeach
+</div>
+
+
+
 
     {{-- pabrik --}}
     <div class="industries-section">

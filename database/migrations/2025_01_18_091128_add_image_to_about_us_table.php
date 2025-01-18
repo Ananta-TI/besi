@@ -1,26 +1,21 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class AddImageToAboutUsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
     {
         Schema::table('about_us', function (Blueprint $table) {
-            $table->text('content')->default('')->change();
+            $table->string('image')->nullable()->after('description'); // Kolom gambar opsional
         });
     }
 
     public function down()
     {
         Schema::table('about_us', function (Blueprint $table) {
-            $table->text('content')->default(null)->change();
+            $table->dropColumn('image');
         });
     }
-
-};
+}
